@@ -1,0 +1,18 @@
+﻿@model  BootcampTool.Models.Message
+
+@{
+    ViewBag.Title = "MessageExample";
+}
+
+<h2>MessageExample</h2>
+
+@if (@Model.State == "success")
+{
+    <div class="alert alert-success">@Model.Description</div>
+}
+
+
+@if (@Model.State == "error")
+{
+    <div class="alert alert-danger">@Model.Description</div>
+}
