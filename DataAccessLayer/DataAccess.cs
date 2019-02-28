@@ -52,6 +52,7 @@
                                 UserDO u = new UserDO();
                                 u.UserId = (Int64)reader["UserId"];
                                 u.LMSId = (Int64)reader["LMSId"];
+                                u.Username = (string)reader["Username"];
                                 u.FirstName = (string)reader["FirstName"];
                                 u.LastName = (string)reader["LastName"];
                                 u.Password = (string)reader["Password"];
@@ -69,12 +70,16 @@
             }
             catch (Exception error)
             {
-
-               // throw error;
+                this.LogError(error);
             }
 
 
             return _list;
+        }
+
+        public void LogError(Exception error)
+        {
+            throw new NotImplementedException();
         }
 
 
@@ -112,8 +117,7 @@
             }
             catch (Exception error)
             {
-                //Logger errorLogger = new Logger();
-                //errorLogger.LogError(error);
+                this.LogError(error);
             }
             finally
             {
@@ -152,7 +156,7 @@
             catch (Exception error)
             {
 
-                throw error;
+                this.LogError(error);
             }
 
             return _result;
@@ -190,7 +194,7 @@
             }
             catch (Exception error)
             {
-     
+                this.LogError(error);
             }
 
             return _result;

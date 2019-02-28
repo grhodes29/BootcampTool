@@ -1,6 +1,4 @@
-﻿
-
-namespace BootcampTool.Controllers
+﻿namespace BootcampTool.Controllers
 {
     using System;
     using System.Collections.Generic;

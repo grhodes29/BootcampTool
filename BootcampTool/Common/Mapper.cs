@@ -31,6 +31,7 @@ namespace BootcampTool.Common
                 u.Firstname = uDO.FirstName;
                 u.LastName = uDO.LastName;
                 u.Id = uDO.UserId;
+                u.Username = uDO.Username;
                 u.Password = uDO.Password;
                 u.Role = uDO.Role;
                 u.Email = uDO.Email;

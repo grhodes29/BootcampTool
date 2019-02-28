@@ -1,0 +1,74 @@
+﻿@model  BootcampTool.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        function ClearForm() {
+
+            $('#Firstname').val('');
+            $('#LastName').val('');
+            $('#Email').val('');
+            $('#Username').val('');
+            $('#Password').val('');
+        }
+
+    </script>
+
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">User Details</th>
+        </tr>
+        <tr>
+            <td>First Name: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Firstname)
+                @Html.ValidationMessageFor(m => m.Firstname)
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td>
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>User Name: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username)
+            </td>
+        </tr>
+        <tr>
+            <td>User Password: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Username)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" /><input type="button" value="Clear" onclick="ClearForm()" /></td>
+        </tr>
+    </table>
+}
+
+

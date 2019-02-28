@@ -1,7 +1,5 @@
 ﻿namespace BootcampTool.Controllers
 {
-
-
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -56,27 +54,34 @@
 
         public ActionResult SelectUsers()
         {
-            List<User> list = new List<User>();
+            List<User> model = new List<User>();
             da = new DataAccess();
             // TESTING ONLY
             // hard coding userId
             int userId = 0;  // Andrew Leon   
 
-            list = Mapper.Map(da.GetUsers(userId));
-
-            ListOfUsers model = new ListOfUsers(list);
-
-
-            if (ModelState.IsValid)
+            try
             {
-                return View(model);
+                model = Mapper.Map(da.GetUsers(userId));
+
+                if (ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                else
+                {
+                    return View();
+                }
+
             }
-            else
+            catch (Exception error)
             {
+                // TODO: implement error logging
+                da.LogError(error);
                 return View();
             }
-
-
+            
+                          
         }
 
 

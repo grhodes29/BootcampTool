@@ -1,0 +1,84 @@
+﻿@model  BootcampTool.Models.User
+
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        function ClearForm() {
+         
+            $('#Username').val('');
+            $('#Password').val('');
+
+            resetValidation();
+
+            //$.fn.clearErrors = function () {
+            //    $(this).each(function () {
+            //        $(this).find(".field-validation-error").empty();
+            //        $(this).trigger('reset.unobtrusiveValidation');
+            //    });
+            //};
+
+        }
+
+        // https://stackoverflow.com/questions/2798427/how-do-i-clear-mvc-client-side-validation-errors-when-a-cancel-button-is-clicked
+        function resetValidation() {
+            ////Removes validation from input-fields
+            //$('.input-validation-error').addClass('input-validation-valid');
+            //$('.input-validation-error').removeClass('input-validation-error');
+            ////Removes validation message after input-fields
+            //$('.field-validation-error').addClass('field-validation-valid');
+            //$('.field-validation-error').removeClass('field-validation-error');
+            ////Removes validation summary 
+            //$('.validation-summary-errors').addClass('validation-summary-valid');
+            //$('.validation-summary-errors').removeClass('validation-summary-errors');
+
+            alert("resetValidation");
+            // – Alexander Puchkov Nov 24 '17 at 19:46
+            $('.field-validation-error').text(''); 
+
+        }
+
+
+    </script>
+
+}
+
+<h2>Login</h2>
+
+
+
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Login</th>
+        </tr>
+       
+        <tr>
+            <td>User Name: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>User Password: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login" /><input type="button" value="Clear" onclick="ClearForm()" /></td>
+        </tr>
+    </table>
+}
+
