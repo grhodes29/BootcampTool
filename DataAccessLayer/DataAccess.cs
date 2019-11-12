@@ -1,13 +1,11 @@
 ﻿namespace DataAccessLayer
 {
-
     using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
     using DataAccessLayer.DataClasses;
     using System.Configuration;
     using System.Data;
-
 
     /// <summary>
     /// AUTHOR: Giancarlo Rhodes
@@ -110,6 +108,9 @@
                         command.Parameters.AddWithValue("parmActive", u.Active);
                         command.Parameters.AddWithValue("parmGroupId", u.GroupId);
                         command.Parameters.AddWithValue("parmCourseId", u.CourseId);
+                        command.Parameters.AddWithValue("parmCreatedDate", u.CreatedDate);
+                        command.Parameters.AddWithValue("parmCreatedUserId", u.CreatedUserId);
+                        command.Parameters.AddWithValue("parmEmail", u.Email);
                         _result = (int)command.ExecuteNonQuery();
 
                     }

@@ -8,12 +8,12 @@ namespace Common
     public class Mapper
     {
 
-        public UserBO Map(User user)
-        {
-            UserBO u = new UserBO();
+        //public UserBO Map(User user)
+        //{
+        //    UserBO u = new UserBO();
 
-            return u;
-        }
+        //    return u;
+        //}
 
     }
 }

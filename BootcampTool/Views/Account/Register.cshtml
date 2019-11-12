@@ -1,4 +1,4 @@
-﻿@model  BootcampTool.Models.User
+﻿@model  BootcampTool.Models.Register
 
 @{
     ViewBag.Title = "Register";
@@ -21,6 +21,19 @@
 
 }
 
+@if (@Model.Message.State == "success")
+{
+    <div class="alert alert-success">@Model.Message.Description</div>
+}
+
+
+@if (@Model.Message.State == "error")
+{
+    <div class="alert alert-danger">@Model.Message.Description</div>
+}
+
+
+
 <h2>Register</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
@@ -32,36 +45,50 @@
         <tr>
             <td>First Name: </td>
             <td>
-                @Html.TextBoxFor(m => m.Firstname)
-                @Html.ValidationMessageFor(m => m.Firstname)
+                @Html.TextBoxFor(m => m.User.Firstname)
+                @Html.ValidationMessageFor(m => m.User.Firstname)
             </td>
         </tr>
         <tr>
             <td>Last Name: </td>
             <td>
-                @Html.TextBoxFor(m => m.LastName)
-                @Html.ValidationMessageFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.User.LastName)
+                @Html.ValidationMessageFor(m => m.User.LastName)
             </td>
         </tr>
         <tr>
             <td>Email: </td>
             <td>
-                @Html.TextBoxFor(m => m.Email)
-                @Html.ValidationMessageFor(m => m.Email)
+                @Html.TextBoxFor(m => m.User.Email)
+                @Html.ValidationMessageFor(m => m.User.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>LMS Course: </td>
+            <td>
+                @Html.DropDownListFor(m => m.SelectedLMSCourseId, Model.LMSCourses)
+                @Html.ValidationMessageFor(m => m.SelectedLMSCourseId)
+            </td>
+        </tr>
+        <tr>
+            <td>LMS Group: </td>
+            <td>
+                @Html.DropDownListFor(m => m.SelectedLMSGroupId, Model.LMSGroups)
+                @Html.ValidationMessageFor(m => m.SelectedLMSGroupId)
             </td>
         </tr>
         <tr>
             <td>User Name: </td>
             <td>
-                @Html.TextBoxFor(m => m.Username)
-                @Html.ValidationMessageFor(m => m.Username)
+                @Html.TextBoxFor(m => m.User.Username)
+                @Html.ValidationMessageFor(m => m.User.Username)
             </td>
         </tr>
         <tr>
             <td>User Password: </td>
             <td>
-                @Html.TextBoxFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Username)
+                @Html.TextBoxFor(m => m.User.Password)
+                @Html.ValidationMessageFor(m => m.User.Username)
             </td>
         </tr>
         <tr>

@@ -4,6 +4,7 @@ namespace BootcampTool.Common
 
     using BootcampTool.Models;
     using DataAccessLayer.DataClasses;
+    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -40,6 +41,42 @@ namespace BootcampTool.Common
             }
 
             return list;
+        }
+
+        public static UserDO Map(User u) {
+
+            UserDO _result = new UserDO();
+
+            _result.FirstName = u.Firstname;
+            _result.Active = 1;
+            _result.CreatedDate = DateTime.Now;
+            _result.CreatedUserId = 0;
+            _result.Email = u.Email;
+      
+            return _result;
+
+        }
+
+
+        public static UserDO Map(Register r)
+        {
+
+            UserDO _result = new UserDO();
+
+            _result.FirstName = r.User.Firstname;
+            _result.LastName = r.User.LastName;
+            _result.Username = r.User.Username;
+            _result.Password = r.User.Password;
+            _result.LMSId = r.SelectedLMSCourseId;
+            _result.GroupId = r.SelectedLMSGroupId;
+            _result.Active = 1;
+            _result.CreatedDate = DateTime.Now;
+            _result.CreatedUserId = 0;
+            _result.Email = r.User.Email;
+            _result.Role = r.User.Role;
+
+            return _result;
+
         }
 
     }

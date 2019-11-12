@@ -13,7 +13,16 @@
 
         $(document).ready(function () {
 
-            $('#users').DataTable();
+            $('#users').DataTable({
+                    "columnDefs": [
+                        { "orderable": false, "targets": 4 },
+                        { "orderable": false, "targets": 5 }
+                    ],
+                    "pageLength" : 100
+                });
+
+
+
         });
 
     </script>
